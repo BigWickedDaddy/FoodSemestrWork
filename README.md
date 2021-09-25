@@ -8,4 +8,5 @@
 В качестве бд будет использована MS sql.Там будут реализованы 5 таблиц: User, Profile, Categories, Posts, Comments.
 
 Backend будет лежать в этом рп в папке Dev1 //Web-приложение на ASP.NET Core, сервер Kestrel, шаблонизатор Razor
+
 Frontend в папке Dev2 //html, css (с библиотекой bootstrap или альтернативной), js с библиотекой jquery
