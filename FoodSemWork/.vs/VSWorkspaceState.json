@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\FoodSemWork",
+    "\\FoodSemWork\\bin",
+    "\\FoodSemWork\\Controllers",
+    "\\FoodSemWork\\Migrations",
+    "\\FoodSemWork\\Models",
+    "\\FoodSemWork\\Views",
+    "\\FoodSemWork\\Views\\Account"
+  ],
+  "SelectedNode": "\\FoodSemWork\\Models\\User.cs",
+  "PreviewInSolutionExplorer": false
+}
