@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FoodSemWork.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211111181609_InitialMigration")]
+    [Migration("20211126115148_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,9 @@ namespace FoodSemWork.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Password")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

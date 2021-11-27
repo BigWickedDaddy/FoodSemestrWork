@@ -4,8 +4,29 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\Новая папка\**" />
+    <Content Remove="wwwroot\Новая папка\**" />
+    <EmbeddedResource Remove="wwwroot\Новая папка\**" />
+    <None Remove="wwwroot\Новая папка\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Home\Index1.cshtml.cs" />
+    <Compile Remove="Views\Home\Register.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Index1.cshtml" />
+    <Content Remove="Views\Home\Register.cshtml" />
+  </ItemGroup>
+
 	<ItemGroup>
+		    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.20" />
+		
+		    
 		<PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.20" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,5 +39,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Migrations\" />
+		<Folder Include="Views\Home\Pic\" />
 	</ItemGroup>
 </Project>
