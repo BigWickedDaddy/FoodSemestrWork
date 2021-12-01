@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FoodSemWork.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211126115148_InitialMigration")]
+    [Migration("20211201094545_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,6 +26,9 @@ namespace FoodSemWork.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<byte[]>("Avatar")
+                        .HasColumnType("bytea");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");

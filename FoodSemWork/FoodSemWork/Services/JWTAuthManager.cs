@@ -29,7 +29,7 @@ namespace FoodSemWork.Services
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_tokenKey);
+            var key = Encoding.UTF8.GetBytes(_tokenKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]

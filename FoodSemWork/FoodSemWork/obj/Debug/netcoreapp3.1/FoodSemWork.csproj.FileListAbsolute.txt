@@ -137,7 +137,8 @@ C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\Micr
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\RegistrationLogin\Login.cshtml.g.cs
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\RegistrationLogin\Registration.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Account\Profile.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\Main.cshtml.g.cs

@@ -1,5 +1,6 @@
 ﻿using FoodSemWork.Interfaces;
 using FoodSemWork.Models;
+using FoodSemWork.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -42,7 +43,7 @@ namespace FoodSemWork.Controllers
                         Id = Guid.NewGuid(),
                         Email = model.Email,
                         Username = model.Email,
-                        Password = model.Password,
+                        Password = Encryption.EncryptString(model.Password),
 
                     };
                     db.Users.Add(currentUser);
@@ -70,7 +71,7 @@ namespace FoodSemWork.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserViewModel model)
         {
-            User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+            User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == Encryption.EncryptString(model.Password));
             if (user == null)
             {
                 return RedirectToAction("Registration", "RegistrationLogin");

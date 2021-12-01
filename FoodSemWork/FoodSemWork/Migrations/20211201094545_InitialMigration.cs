@@ -14,7 +14,8 @@ namespace FoodSemWork.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: true),
                     Username = table.Column<string>(type: "text", nullable: true),
-                    Password = table.Column<string>(type: "text", nullable: true)
+                    Password = table.Column<string>(type: "text", nullable: true),
+                    Avatar = table.Column<byte[]>(type: "bytea", nullable: true)
                 },
                 constraints: table =>
                 {

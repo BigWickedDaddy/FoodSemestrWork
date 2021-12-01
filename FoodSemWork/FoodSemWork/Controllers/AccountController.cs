@@ -1,14 +1,102 @@
 ﻿using FoodSemWork.Models;
+using FoodSemWork.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FoodSemWork.Controllers
 {
+	public class AccountController : Controller
+	{
+		private ApplicationContext db;
+		private JwtSecurityToken _token;
+		public User CurrentUser { get => GetUser(); }
+
+		public AccountController(ApplicationContext context)
+		{
+			db = context;
+		}
+
+		public IActionResult Index()
+		{
+
+			return View(CurrentUser);
+		}
+
+		public IActionResult Profile(UserViewModel model)
+		{
+			if (CurrentUser == null)
+			{
+				return RedirectToAction("Login", "RegistrationLogin");
+			}
+
+			return View(CurrentUser);
+		}
+
+		public IActionResult Settings(UserViewModel model)
+		{
+			if (CurrentUser == null)
+			{
+				return RedirectToAction("Login", "RegistrationLogin");
+			}
+
+			if (model.Avatar != null)
+			{
+				byte[] imageData = null;
+				using (var binaryReader = new BinaryReader(model.Avatar.OpenReadStream()))
+				{
+					imageData = binaryReader.ReadBytes((int)model.Avatar.Length);
+				}
+				CurrentUser.Avatar = imageData;
+			}
+
+			if (model.Username != null)
+			{
+				CurrentUser.Username = model.Username;
+			}
+
+			if (model.CurrentPassword != null && model.NewPassword != null)
+			{
+				if (CurrentUser.Password == Encryption.EncryptString(model.CurrentPassword))
+				{
+					CurrentUser.Password = Encryption.EncryptString(model.NewPassword);
+				}
+			}
+
+
+			db.SaveChanges();
+
+			return View(CurrentUser);
+		}
+
+
+		public User GetUser()
+		{
+			var currentUser = HttpContext.User;
+
+			if (Request.Cookies["token"] == null || Request.Cookies["token"] == "")
+			{
+				return null;
+			}
+
+			var stream = Request.Cookies["token"];
+			var handler = new JwtSecurityTokenHandler();
+			var jsonToken = handler.ReadToken(stream);
+			_token = jsonToken as JwtSecurityToken;
+
+			var CurrentId = _token.Claims.First(claim => claim.Type == "nameid").Value;
+
+			var user = db.Users.FirstOrDefault(u => u.Id.ToString() == CurrentId);
+
+			return user;
+		}
+	}
 	//public class AccountController : Controller
 	//{
 	//	private ApplicationContext db;
@@ -103,49 +191,49 @@ namespace FoodSemWork.Controllers
 
 
 
-		//    public class AccountController : Controller
-		//    {
-		//        ApplicationContext db;
+	//    public class AccountController : Controller
+	//    {
+	//        ApplicationContext db;
 
-		//        public AccountController(ApplicationContext context)
-		//        {
-		//            db = context;
-		//        }
+	//        public AccountController(ApplicationContext context)
+	//        {
+	//            db = context;
+	//        }
 
-		//        [HttpGet]
-		//        public IActionResult Registration()
-		//        {
-		//            return View();
-		//        }
+	//        [HttpGet]
+	//        public IActionResult Registration()
+	//        {
+	//            return View();
+	//        }
 
-		//        [HttpPost]
-		//        [ValidateAntiForgeryToken]
-		//        public async Task<IActionResult> Registration(UserViewModel model)
-		//        {
-		//            if (ModelState.IsValid)
-		//            {
-		//                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+	//        [HttpPost]
+	//        [ValidateAntiForgeryToken]
+	//        public async Task<IActionResult> Registration(UserViewModel model)
+	//        {
+	//            if (ModelState.IsValid)
+	//            {
+	//                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
 
-		//                if (user == null)
-		//                {
-		//                    var currentUser = new User
-		//                    {
-		//                       Id = model.Id,
-		//                        Email = model.Email,
-		//                        Password = model.Password,
+	//                if (user == null)
+	//                {
+	//                    var currentUser = new User
+	//                    {
+	//                       Id = model.Id,
+	//                        Email = model.Email,
+	//                        Password = model.Password,
 
-		//                    };
-		//                    db.Users.Add(currentUser);
-		//                    await db.SaveChangesAsync();
+	//                    };
+	//                    db.Users.Add(currentUser);
+	//                    await db.SaveChangesAsync();
 
 
-		//                    return RedirectToAction("Index", "Home");
-		//                }
-		//                else
-		//                    ModelState.AddModelError("", "User already exists");
-		//            }
-		//            return View(model);
-		//        }
-		//    }
+	//                    return RedirectToAction("Index", "Home");
+	//                }
+	//                else
+	//                    ModelState.AddModelError("", "User already exists");
+	//            }
+	//            return View(model);
+	//        }
+	//    }
 	//}
 }
