@@ -142,3 +142,6 @@ C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razo
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Account\Profile.cshtml.g.cs
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\Main.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll

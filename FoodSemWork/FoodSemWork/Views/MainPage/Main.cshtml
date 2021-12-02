@@ -9,47 +9,19 @@
 
 
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Главная</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Блог </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Галерея</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Наша команда</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                    <img src="https://lh3.googleusercontent.com/proxy/Rkg8z1crcj5MSA6atr-jK-qjIDzF8QX0sFVU62xEBNWt_NpYEno_oSw29MvBKjucDhh5pcqaZMRKVTYaTjoaXQuXJymoMBgMuT2wCyZASVk5ZCmgxMxk7hhb_RA0_VcMVMJNsQFPdHCOcWe-nculrXjb72RnkgaFCrQNhz1ZBzFs3txMgCu_1DdqX0nv7w" height="32" width="32">
-                </span>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container-main">
-        <img src="pic/background-main.jpg" style="filter: blur(2px); width: 100%; height: 100%; object-fit: cover; margin-top: 20px;">
+<body style=" min-height: 100%; ">
+    <div class="container-main" style="margin-top:1300px">
+        <img src="~/pic/background-main.jpg" style="filter: blur(2px); width: 100%; height: 100%; object-fit: cover; margin-top: 20px;">
         <span class="centered-text">"Еда" к вашим услугам</span>
         </img>
     </div>
 
-    <div class="scrollcontainer">
-        <img src="pic/pic-1.jpeg" />
-        <img src="pic/pic-1.jpeg" />
-        <img src="pic/pic-1.jpeg" />
-        <img src="pic/pic-1.jpeg" />
-        <img src="pic/pic-1.jpeg" />
+    <div class="scrollcontainer" >
+        <img src="~/pic/pic-1.jpeg" />
+        <img src="~/pic/pic-1.jpeg" />
+        <img src="~/pic/pic-1.jpeg" />
+        <img src="~/pic/pic-1.jpeg" />
+        <img src="~/pic/pic-1.jpeg" />
     </div>
 
     <div class="map" style="margin-top: 10px;">
@@ -69,43 +41,59 @@
 
         <div style="display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: center; margin: 20px;">
 
-            <div class="container">
+            @*<form method="post">
+                <input type="text" name="name" placeholder="Phone number, username, or email" style="border: 1px solid rgba(var(--ca6,219,219,219),1); border-radius: 3px; margin-top: 24px; margin: 0 40px 6px; stretch">
+                <input type="text" name="email" placeholder="Password" style="border: 1px solid rgba(var(--ca6,219,219,219),1); border-radius: 3px; margin: 0 40px 6px;">
+                <button asp-controller="Mainpage" asp-action="SendMail" asp-area="" style="margin-top: 8px; margin-right: 40px; margin-left: 40px; margin-bottom: 8px; justify-content: flex-start; align-items: stretch; background-color: rgba(var(--d69,0,149,246),.3);
+    opacity: 1; border: 1px solid transparent; font-family: Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px; text-decoration-color: white;">
+                    Log In
+                </button>
+                <</form>>*@
+            <form method="post" class="container">
                 <div class="row" style="width: 80%">
                     <div class="col-sm">
                         <p>Имя</p>
-                        <input type="text" name="email">
+                        <input type="text" placeholder="Phone number, username, or email" name="name">
                     </div>
                     <div class="col-sm">
                         <p>Эл. почта</p>
-                        <input type="text" name="email">
+                        <input type="text" placeholder="Phone number, username, or email" name="email">
                     </div>
                 </div>
 
                 <div class="row" style="width: 80%">
                     <div class="col-sm">
                         <p>Телефон</p>
-                        <input type="text" name="email">
+                        <input type="text" name="phonenumber">
                     </div>
                     <div class="col-sm">
                         <p>Адрес</p>
-                        <input type="text" name="email">
+                        <input type="text" name="adress">
                     </div>
                 </div>
 
                 <div class="row" style="width: 80%;">
                     <div class="col-sm">
                         <p>Тема</p>
-                        <input type="text" name="email">
+                        <input type="text" name="title">
                     </div>
                 </div>
                 <div class="row" style="width: 80%">
                     <div class="col-sm">
                         <p>Сообщение</p>
-                        <input type="text" name="email">
+                        <input type="text" name="messagetitle">
                     </div>
                 </div>
-                <button type="button" class="btn btn-dark registration-button" style="width: 80%">Зарегистрироваться</button>
-            </div>
+
+                <button asp-controller="Mainpage" asp-action="SendMail" asp-area="" style="margin-top: 8px; margin-right: 40px; margin-left: 40px; margin-bottom: 8px; justify-content: flex-start; align-items: stretch; background-color: rgba(var(--d69,0,149,246),.3);
+    opacity: 1; border: 1px solid transparent; font-family: Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px; text-decoration-color: white;">
+                    Отправить
+                </button>
+                @*<button asp-controller="MainPage" asp-action="SendMail" asp-area="" type="button" class="btn btn-dark registration-button" style="width: 80%">Отправить</button>*@
+
+            </form>
 
 
 

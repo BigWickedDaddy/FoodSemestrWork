@@ -44,7 +44,6 @@ namespace FoodSemWork.Controllers
                         Email = model.Email,
                         Username = model.Email,
                         Password = Encryption.EncryptString(model.Password),
-
                     };
                     db.Users.Add(currentUser);
                     await db.SaveChangesAsync();
