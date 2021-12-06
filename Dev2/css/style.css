@@ -64,8 +64,8 @@ input[type=text] {
 .scrollcontainer {
   display: flex;
   flex-wrap: no-wrap;
-  overflow-x: auto;
-  margin-top: 30px;
+  overflow-x: scroll;
+  margin-top: 10px;
 }
 .scrollcontainer img {
   flex: 0 0 auto;
@@ -125,4 +125,7 @@ footer{
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+.gallery{
+  margin-top: 20px;
 }
