@@ -84,11 +84,10 @@ footer{
 .container{
   display: flex;
   flex-direction: column;
-  /*height: 100%;*/
+  height: auto;
   width: 60%;
   align-items: flex-start;
-  margin-top: 50px;
-  justify-content: center;
+  /*justify-content: center;*/
 }
 .post{
   display: flex;
@@ -119,4 +118,11 @@ footer{
   margin-bottom: 40px;
   width: 100%;
   flex-direction: row;
+}
+.post-detail{
+  margin: 10px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
