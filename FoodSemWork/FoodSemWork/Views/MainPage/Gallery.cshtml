@@ -1,6 +1,6 @@
-﻿@page
+﻿
+@model List<FoodSemWork.Models.Posts>
 
-@model FoodSemWork.Models.Main
 
 <head>
     <meta charset="UTF-8">
@@ -14,35 +14,52 @@
 
 </head>
 
-    <h2 class="text-center" style="margin-top: 20px;">
-        Галерея
-    </h2>
+<h2 class="text-center" style="margin-top: 20px;">
+    Галерея
+</h2>
 
-    <div class="gallery" style="">
+<div class="gallery">
 
-        <div class="scrollcontainer">
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-        </div>
-
-        <div class="scrollcontainer" style="justify-content: flex-end;">
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-        </div>
-
-        <div class="scrollcontainer">
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-            <img src="/pic/pic-1.jpeg" />
-        </div>
-
+    <div class="scrollcontainer">
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
     </div>
+
+    <div class="scrollcontainer" style="justify-content: flex-end;">
+        <img src="/pic/pic-1.jpeg" />
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+    </div>
+
+    <div class="scrollcontainer">
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+    </div>
+
+</div>
 

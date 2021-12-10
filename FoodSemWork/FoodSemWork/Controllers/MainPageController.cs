@@ -23,10 +23,12 @@ namespace FoodSemWork.Controllers
 
 		//public User CurrentUser { get => GetUser(); }
 
-		public MainPageController(ILogger<MainPageController> logger, Service service)
+		public MainPageController(ILogger<MainPageController> logger, Service service, ApplicationContext context)
         {
 			_logger = logger;
 			this.service = service;
+			db = context;
+
 		}
 		[HttpGet]
 		public IActionResult SendMail()
@@ -63,8 +65,10 @@ namespace FoodSemWork.Controllers
 			//}
 
 			//db.SaveChanges();
+			var posts = db.Posts.ToList();
+			return View(posts);
 
-			return View(/*CurrentUser*/);
+			//return View(/*CurrentUser*/);
 		}
 
 		public IActionResult AboutUs(Main model)
@@ -81,15 +85,25 @@ namespace FoodSemWork.Controllers
 		}
 		public IActionResult Gallery(Main model)
 		{
-			return View();
+			var posts = db.Posts.ToList();
+			return View(posts);
 		}
-		public IActionResult Post(Main model)
-		{
-			return View();
-		}
+
 		public IActionResult ContactUs(Main model)
 		{
 			return View();
+		}
+
+		public IActionResult Blog(Main model)
+		{
+			var posts = db.TypesOfFoods.ToList();
+			return View(posts);
+		}
+
+		public IActionResult Post()
+		{
+			var posts = db.Posts.ToList();
+			return View(posts);
 		}
 
 

@@ -102,7 +102,7 @@ namespace FoodSemWork
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    pattern: "{controller=MainPage}/{action=Main}/{id?}"
                     );
             });
         }

@@ -1,0 +1,20 @@
+﻿@model List<FoodSemWork.Models.TypesOfFood>
+
+
+<div>
+    @foreach (FoodSemWork.Models.TypesOfFood posts in Model)
+    {
+        <!-- ГЛАВНАЯ ЧАСТЬ -->
+        <div class="container" style="margin-top:10px">
+            <div class="border post-detail">
+                <div class="post-info">
+                    <div>
+                        <h5>@posts.TypeOfFood</h5>
+                        <p>@posts.Receipt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    }
+</div>

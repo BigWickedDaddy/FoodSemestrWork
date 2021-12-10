@@ -1,5 +1,4 @@
-﻿@page
-@model FoodSemWork.Models.Main
+﻿@model List<FoodSemWork.Models.Posts>
 
 
 @{
@@ -19,99 +18,106 @@
 </head>
 
 
-    <div class="container-main" style="">
-        <img src="~/pic/background-main.jpg" style="filter: blur(2px); width: 100%; height: 100%; object-fit: cover; margin-top: 20px;">
-        <span class="centered-text">"Еда" к вашим услугам</span>
-        </img>
+<div class="container-main" style="">
+    <img src="~/pic/background-main.jpg" style="filter: blur(2px); width: 100%; height: 100%; object-fit: cover; margin-top: 20px;">
+    <span class="centered-text">"Еда" к вашим услугам</span>
+    </img>
+</div>
+<div class="scrollcontainer">
+
+    @foreach (FoodSemWork.Models.Posts posts in Model)
+    {
+        <a asp-controller="mainpage" asp-action="post"><img src="@posts.Picture"  /></a>
+        @*<a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
+            <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
+            <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
+            <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>*@
+    }
+</div>
+
+<div class="map" style="margin-top: 10px;">
+    <a class="dg-widget-link" href="http://2gis.ru/kazan/firm/2956015536451719/center/49.122153,55.792049/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Казани</a><div class="dg-widget-link"><a href="http://2gis.ru/kazan/firm/2956015536451719/photos/2956015536451719/center/49.122153,55.792049/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div><div class="dg-widget-link"><a href="http://2gis.ru/kazan/center/49.122153,55.792049/zoom/16/routeTab/rsType/bus/to/49.122153,55.792049╎Казанский (Приволжский) федеральный университет?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Казанский (Приволжский) федеральный университет</a></div>
+    <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+    <script charset="utf-8">new DGWidgetLoader({ "width": "100%", "height": 600, "borderColor": "#a3a3a3", "pos": { "lat": 55.792049, "lon": 49.122153, "zoom": 16 }, "opt": { "city": "kazan" }, "org": [{ "id": "2956015536451719" }] });</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+</div>
+
+<div class="about-container" style="margin-top: 20px">
+
+    <div class="info" style="display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: center;">
+        <p>На связи</p>
+        <p>г. Казань, ул. Кремлевская 35</p>
+        <p>olesy_2002@mail.ru</p>
+        <p>+7(917)885-09-04</p>
     </div>
 
-    <div class="scrollcontainer" style=" overflow-x: hidden; " align="center">
-        <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
-        <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
-        <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
-        <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
-        <a asp-controller="mainpage" asp-action="post"><img src="~/pic/pic-1.jpeg" /></a>
-    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: center; margin: 20px;">
 
-    <div class="map" style="margin-top: 10px;">
-        <a class="dg-widget-link" href="http://2gis.ru/kazan/firm/2956015536451719/center/49.122153,55.792049/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Казани</a><div class="dg-widget-link"><a href="http://2gis.ru/kazan/firm/2956015536451719/photos/2956015536451719/center/49.122153,55.792049/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div><div class="dg-widget-link"><a href="http://2gis.ru/kazan/center/49.122153,55.792049/zoom/16/routeTab/rsType/bus/to/49.122153,55.792049╎Казанский (Приволжский) федеральный университет?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Казанский (Приволжский) федеральный университет</a></div>
-        <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
-        <script charset="utf-8">new DGWidgetLoader({ "width": "100%", "height": 600, "borderColor": "#a3a3a3", "pos": { "lat": 55.792049, "lon": 49.122153, "zoom": 16 }, "opt": { "city": "kazan" }, "org": [{ "id": "2956015536451719" }] });</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
-    </div>
+        @*<form method="post">
+                        <input type="text" name="name" placeholder="Phone number, username, or email" style="border: 1px solid rgba(var(--ca6,219,219,219),1); border-radius: 3px; margin-top: 24px; margin: 0 40px 6px; stretch">
+                        <input type="text" name="email" placeholder="Password" style="border: 1px solid rgba(var(--ca6,219,219,219),1); border-radius: 3px; margin: 0 40px 6px;">
+                        <button asp-controller="Mainpage" asp-action="SendMail" asp-area="" style="margin-top: 8px; margin-right: 40px; margin-left: 40px; margin-bottom: 8px; justify-content: flex-start; align-items: stretch; background-color: rgba(var(--d69,0,149,246),.3);
+            opacity: 1; border: 1px solid transparent; font-family: Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+            font-size: 14px; text-decoration-color: white;">
+                            Log In
+                        </button>
+                        <</form>>*@
 
-    <div class="about-container" style="margin-top: 20px">
 
-        <div class="info" style="display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: center;">
-            <p>На связи</p>
-            <p>г. Казань, ул. Кремлевская 35</p>
-            <p>olesy_2002@mail.ru</p>
-            <p>+7(917)885-09-04</p>
-        </div>
 
-        <div style="display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; justify-content: center; margin: 20px;">
 
-            @*<form method="post">
-                            <input type="text" name="name" placeholder="Phone number, username, or email" style="border: 1px solid rgba(var(--ca6,219,219,219),1); border-radius: 3px; margin-top: 24px; margin: 0 40px 6px; stretch">
-                            <input type="text" name="email" placeholder="Password" style="border: 1px solid rgba(var(--ca6,219,219,219),1); border-radius: 3px; margin: 0 40px 6px;">
-                            <button asp-controller="Mainpage" asp-action="SendMail" asp-area="" style="margin-top: 8px; margin-right: 40px; margin-left: 40px; margin-bottom: 8px; justify-content: flex-start; align-items: stretch; background-color: rgba(var(--d69,0,149,246),.3);
-                opacity: 1; border: 1px solid transparent; font-family: Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-                font-size: 14px; text-decoration-color: white;">
-                                Log In
-                            </button>
-                            <</form>>*@
-            <form method="post" class="container">
-                <div class="row" style="width: 80%">
-                    <div class="col-sm">
-                        <p>Имя</p>
-                        <input type="text" placeholder="Phone number, username, or email" name="name">
+        <!--<form method="post" class="container">
+                    <div class="row" style="width: 80%">
+                        <div class="col-sm">
+                            <p>Имя</p>
+                            <input type="text" placeholder="Phone number, username, or email" name="name">
+                        </div>
+                        <div class="col-sm">
+                            <p>Эл. почта</p>
+                            <input type="text" placeholder="Phone number, username, or email" name="email">
+                        </div>
                     </div>
-                    <div class="col-sm">
-                        <p>Эл. почта</p>
-                        <input type="text" placeholder="Phone number, username, or email" name="email">
+
+                    <div class="row" style="width: 80%">
+                        <div class="col-sm">
+                            <p>Телефон</p>
+                            <input type="text" name="phonenumber">
+                        </div>
+                        <div class="col-sm">
+                            <p>Адрес</p>
+                            <input type="text" name="adress">
+                        </div>
                     </div>
-                </div>
 
-                <div class="row" style="width: 80%">
-                    <div class="col-sm">
-                        <p>Телефон</p>
-                        <input type="text" name="phonenumber">
+                    <div class="row" style="width: 80%;">
+                        <div class="col-sm">
+                            <p>Тема</p>
+                            <input type="text" name="title">
+                        </div>
                     </div>
-                    <div class="col-sm">
-                        <p>Адрес</p>
-                        <input type="text" name="adress">
+                    <div class="row" style="width: 80%">
+                        <div class="col-sm">
+                            <p>Сообщение</p>
+                            <input type="text" name="messagetitle">
+                        </div>
                     </div>
-                </div>
 
-                <div class="row" style="width: 80%;">
-                    <div class="col-sm">
-                        <p>Тема</p>
-                        <input type="text" name="title">
-                    </div>
-                </div>
-                <div class="row" style="width: 80%">
-                    <div class="col-sm">
-                        <p>Сообщение</p>
-                        <input type="text" name="messagetitle">
-                    </div>
-                </div>
+                    <button asp-controller="Mainpage" asp-action="SendMail" asp-area="" style="margin-top: 8px; margin-right: 40px; margin-left: 40px; margin-bottom: 8px; justify-content: flex-start; align-items: stretch; background-color: rgba(var(--d69,0,149,246),.3);
+        opacity: 1; border: 1px solid transparent; font-family: Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+        font-size: 14px; text-decoration-color: white;">
+                        Отправить
+                    </button>-->
+        @*<button asp-controller="MainPage" asp-action="SendMail" asp-area="" type="button" class="btn btn-dark registration-button" style="width: 80%">Отправить</button>*@
 
-                <button asp-controller="Mainpage" asp-action="SendMail" asp-area="" style="margin-top: 8px; margin-right: 40px; margin-left: 40px; margin-bottom: 8px; justify-content: flex-start; align-items: stretch; background-color: rgba(var(--d69,0,149,246),.3);
-    opacity: 1; border: 1px solid transparent; font-family: Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    font-size: 14px; text-decoration-color: white;">
-                    Отправить
-                </button>
-                @*<button asp-controller="MainPage" asp-action="SendMail" asp-area="" type="button" class="btn btn-dark registration-button" style="width: 80%">Отправить</button>*@
-
-            </form>
+        <!--</form>-->
 
 
-
-        </div>
 
     </div>
 
+</div>
 
-    <div style="height:100px margin-top:25px "><br><br /></div>
-    <div style="height:100px margin-top:10px "><br><br /></div>
+
+<div style="height:100px margin-top:25px "><br><br /></div>
+<div style="height:100px margin-top:10px "><br><br /></div>
 
 
