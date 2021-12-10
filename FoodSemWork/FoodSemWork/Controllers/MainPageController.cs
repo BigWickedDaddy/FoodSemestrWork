@@ -62,14 +62,41 @@ namespace FoodSemWork.Controllers
 			//	return RedirectToAction("Login", "RegistrationLogin");
 			//}
 
-
-
-
 			//db.SaveChanges();
 
 			return View(/*CurrentUser*/);
 		}
 
+		public IActionResult AboutUs(Main model)
+		{
+			return View();
+		}
+		public IActionResult Privacy(Main model)
+		{
+			return View();
+		}
+		public IActionResult Privacysecond(Main model)
+		{
+			return View();
+		}
+		public IActionResult Gallery(Main model)
+		{
+			return View();
+		}
+		public IActionResult Post(Main model)
+		{
+			return View();
+		}
+		public IActionResult ContactUs(Main model)
+		{
+			return View();
+		}
+
+
+		public ActionResult GetMessage()
+		{
+			return PartialView("_GetMessage");
+		}
 
 		//public User GetUser()
 		//{

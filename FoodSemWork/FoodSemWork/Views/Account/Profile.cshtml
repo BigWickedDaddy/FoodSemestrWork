@@ -14,9 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
-
-
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
 
 <body>
@@ -52,7 +50,7 @@
     <div class="container" style="display: flex; flex-direction: row;">
 
         <!-- 1 column -->
-        <div style="display: flex; flex-direction: column; justify-content: start; align-items: center; height: 80%; width: 40%">
+        <div style="display: flex; flex-direction: column; justify-content: start; align-items: flex-start!important; height: 80%; width: 40%;">
             <div style=" height: 100px; width: 100px;">
                 @if (Model.Avatar != null)
                 {
@@ -60,8 +58,14 @@
                 }
                 <p>@Model.Username</p>
                 <p>Пользователь</p>
+                @if (Model.Birthday != null)
+                {
+                    <p>Дата рождения : @Model.Birthday</p>
+                }
             </div>
+
         </div>
+
 
         <!-- 2 col -->
         <div class="container" style="display: flex; flex-direction: column; justify-content: start; align-items: flex-start; height: 80%; width: 60%">
@@ -116,13 +120,15 @@
             Настроить пользователя
         </a>
     </div>
+    <div class="Settings_button">
+        <a asp-action="Logout" asp-controller="RegistrationLogin" class="ButtonsStyle">
+            Выйти
+        </a>
+    </div>
 
     <div style="height:100px margin-top:25px "><br><br /></div>
     <div style="height:100px margin-top:10px "><br><br /></div>
 
-    <nav class="navbar fixed-bottom navbar-light bg-dark">
-        <a class="navbar-brand" href="#">Fixed bottom</a>
-    </nav>
 </body>
 
 

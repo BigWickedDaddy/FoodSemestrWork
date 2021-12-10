@@ -41,6 +41,12 @@ namespace FoodSemWork.Controllers
 
 		public IActionResult Settings(UserViewModel model)
 		{
+
+			if (model.Birthday != null)
+			{
+				CurrentUser.Birthday = model.Birthday;
+			}
+
 			if (CurrentUser == null)
 			{
 				return RedirectToAction("Login", "RegistrationLogin");

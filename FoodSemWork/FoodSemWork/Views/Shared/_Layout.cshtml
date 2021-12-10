@@ -1,51 +1,52 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FoodSemWork</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/style.css"/>
 
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css"/>
 </head>
 <body>
-    <header>
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Главная</a>
+            <a class="navbar-brand" asp-controller="mainpage" asp-action="main">Главная</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Блог </a>
+                        <a class="nav-link asp-controller="mainpage" asp-action="main">Блог </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Контакты</a>
+                        <a class="nav-link" asp-controller="mainpage" asp-action="contactus">Контакты</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Галерея</a>
+                        <a class="nav-link" asp-controller="mainpage" asp-action="gallery">Галерея</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Наша команда</a>
+                        <a class="nav-link" asp-controller="mainpage" asp-action="aboutus">Наша команда</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
                     <li class="nav-item">
-                        <a href="#">Войти</a>
+                        <a asp-controller="account" asp-action="profile">Login
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">Зарегистрироваться</a>
+                        <a asp-controller="registrationlogin" asp-action="registration">Зарегистрироваться</a>
                     </li>
                 </span>
             </div>
         </nav>
-    </header>
+   
     @*<header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container">
@@ -68,17 +69,26 @@
             </nav>
         </header>*@
 
-    <div class="container">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+
 
     @*<footer class="border-top footer text-muted">
             <div class="container">
                 &copy; 2021 - FoodSemWork - <a asp-area="" asp-page="/Privacy">Privacy</a>
             </div>
         </footer>*@
+
+
+   
+        <nav class="navbar fixed-bottom navbar-light bg-dark">
+            <a class="navbar-brand" href="https://localhost:44303/mainpage/privacy">Privacy</a>
+        </nav>
+    
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

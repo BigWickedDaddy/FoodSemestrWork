@@ -19,6 +19,54 @@ namespace FoodSemWork.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+            modelBuilder.Entity("FoodSemWork.Models.Posts", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("AuthorName")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Comments")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Likes")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("FoodSemWork.Models.TypesOfFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Receipt")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TypeOfFood")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TypesOfFoods");
+                });
+
             modelBuilder.Entity("FoodSemWork.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -27,6 +75,9 @@ namespace FoodSemWork.Migrations
 
                     b.Property<byte[]>("Avatar")
                         .HasColumnType("bytea");
+
+                    b.Property<string>("Birthday")
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");

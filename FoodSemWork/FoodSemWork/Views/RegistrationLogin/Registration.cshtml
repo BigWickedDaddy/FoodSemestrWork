@@ -40,10 +40,8 @@
             </nav>
         </header>*@
         <div class="container">
-
-
             <h1 class="text-center" style="font-family: Arial; font-weight: lighter;">Зарегистрироваться</h1>
-            <p>Уже есть аккаунт?<a href=""> Войти</a></p>
+            <p>Уже есть аккаунт?<a asp-controller="account" asp-action="profile"> Войти</a></p>
 
             <form asp-action="Registration" asp-controller="RegistrationLogin" asp-anti-forgery="true" class="RegLog_center">
                 <div class="Info">
@@ -53,12 +51,12 @@
                 </div>
                 <div class="Info">
                     <div class="Second_Info">
-                        <input type="password" placeholder="Password" class="Input" name="password" asp-for="Password">
+                        <input type="password" placeholder="Password" class="Input" name="password" asp-for="Password" data-toggle="tooltip" data-placement="top" title="От 8 до 15 симолов. Минимум 1 маленькая буква, 1 большая буква, 1 цифра">
                     </div>
                 </div>
                 <div class="Info">
                     <div class="Second_Info">
-                        <input type="password" placeholder="Confirm Password" class="Input" name="confirmPassword" asp-for="ConfirmPassword">
+                        <input type="password" placeholder="Confirm Password" class="Input" name="confirmPassword" asp-for="ConfirmPassword" data-toggle="tooltip" data-placement="top" title="От 8 до 15 симолов. Минимум 1 маленькая буква, 1 большая буква, 1 цифра">
                     </div>
                 </div>
                 <div class="Confirm_Button_Position">

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FoodSemWork.Controllers
@@ -16,6 +17,8 @@ namespace FoodSemWork.Controllers
         ApplicationContext db;
 
         private readonly IJWTAuthManager _jWTAuthManager;
+
+        public bool a = false;
 
         public RegistrationLoginController(ApplicationContext context, IJWTAuthManager jWTAuthManager)
         {
@@ -33,23 +36,28 @@ namespace FoodSemWork.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Registration(UserViewModel model)
         {
+            if (Request.Cookies["token"] != null)
+                return RedirectToAction("Login", "RegistrationLogin");
+
             if (ModelState.IsValid && model.ConfirmPassword == model.Password)
             {
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if (user == null)
                 {
-                    var currentUser = new User
+                    if (RegexUtilities.IsValidEmail(model.Email) && RegexUtilities.IsValidPassword(model.Password))
                     {
-                        Id = Guid.NewGuid(),
-                        Email = model.Email,
-                        Username = model.Email,
-                        Password = Encryption.EncryptString(model.Password),
-                    };
-                    db.Users.Add(currentUser);
-                    await db.SaveChangesAsync();
-
-
-                    return RedirectToAction("Index", "Home");
+                        var currentUser = new User
+                        {
+                            Id = Guid.NewGuid(),
+                            Email = model.Email,
+                            Username = model.Email,
+                            Password = Encryption.EncryptString(model.Password),
+                        };
+                        db.Users.Add(currentUser);
+                        await db.SaveChangesAsync();
+                        return RedirectToAction("Profile", "Account");
+                    }
+                    return RedirectToAction("Registration", "Registrationlogin");
                 }
                 else
                     ModelState.AddModelError("", "User already exists");
@@ -84,6 +92,13 @@ namespace FoodSemWork.Controllers
                 Response.Cookies.Append("token", token);
                 return RedirectToAction("Index", "Home");
             }
+
+
+            //if (Request.Cookies["token"] != null)
+            //{
+            //    Response.Cookies["token"].Expires = DateTime.Now.AddDays(-1);
+            //}
+
         }
 
         [HttpGet]

@@ -145,3 +145,13 @@ C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razo
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\AboutUs.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\Privacy.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\privacysecond.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\Gallery.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\Post.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Post1.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Post2.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\Post3.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\ContactUs.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\_GetMessage.cshtml.g.cs

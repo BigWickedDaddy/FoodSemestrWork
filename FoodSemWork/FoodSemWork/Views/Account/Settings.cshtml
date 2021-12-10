@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
 
 
 </head>
@@ -54,7 +54,7 @@
     <form class="container" style="display: flex; flex-direction: row;" asp-action="Settings" asp-controller="Account" method="post" enctype="multipart/form-data">
 
         <!-- 1 column -->
-        <div style="display: flex; flex-direction: column; justify-content: start; align-items: center; height: 80%; width: 40%">
+        <div style="display: flex; flex-direction: column; align-items: flex-start!important; height: 80%; width: 40%">
             <div style=" height: 100px; width: 100px;">
                 @if (Model.Avatar != null)
                 {
@@ -64,6 +64,8 @@
                 <p>Пользователь</p>
             </div>
         </div>
+
+        <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css">
 
         <!-- 2 col -->
         <div class="container" style="display: flex; flex-direction: column; justify-content: start; align-items: flex-start; height: 80%; width: 60%">
@@ -77,6 +79,7 @@
                 <p>Карточка профиля видна всем пользователям этого сайта</p>
                 <p>Имя пользователя</p>
                 <input type="text" name="name" value="@Model.Username" style="color: black;">
+
             </div>
 
             <div style="width: 100%;  margin-top: 5px;">
@@ -87,14 +90,31 @@
 
                 <p style="margin-top: 5px;">
                     <label>Change password</label>
-                    <input name="CurrentPassword" type="password" class="form-control" placeholder="Current password" style="color: black;"/>
-                    <input name="NewPassword" type="password" class="form-control" placeholder="New password" style="margin-top: 10px; color:black;" />
+                    <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$" name="CurrentPassword" type="password" class="form-control" placeholder="Current password" style="color: black; " />
+                    <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$" name="NewPassword" type="password" class="form-control" placeholder="New password" style="margin-top: 10px; color:black;" />
                 </p>
 
 
                 <p>
                     <label>Аватар</label>
                     <input name="Avatar" type="file" class="form-control" />
+                </p>
+
+                <p style="width:50px!important">
+                <p>Дата рождения</p>
+                <input type="text" name="Birthday" id="date" style="color: black;" />
+                @section scripts{
+                    <script src="~/lib/jquery-ui/external/jquery/jquery.js"></script>
+                    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+                    <script>
+                        $(function () {
+                            $("#date").datepicker();
+                        })
+
+                        $(function () {
+                            $(".datepicker").datepicker();
+                        })</script>
+                }
                 </p>
 
                 <p style="margin-top: 20px;">
@@ -113,9 +133,7 @@
     <div style="height:100px margin-top:10px "><br><br /></div>
 
 
-    <nav class="navbar fixed-bottom navbar-light bg-dark">
-        <a class="navbar-brand" href="#">Fixed bottom</a>
-    </nav>
+
 </body>
 
 

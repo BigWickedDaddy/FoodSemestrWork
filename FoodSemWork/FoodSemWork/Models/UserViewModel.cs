@@ -16,6 +16,8 @@ namespace FoodSemWork.Models
 
         //public bool isToken { get; set; }
 
+        public string Birthday { get; set; }
+
         public string CurrentPassword { get; set; }
 
         public string NewPassword { get; set; }
