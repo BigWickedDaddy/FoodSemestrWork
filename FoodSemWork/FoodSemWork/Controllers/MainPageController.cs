@@ -1,6 +1,7 @@
 ﻿using FoodSemWork.Models;
 using FoodSemWork.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace FoodSemWork.Controllers
 
 
 	public class MainPageController : Controller
-    {
-        private ApplicationContext db;
+	{
+		private ApplicationContext db;
 		private JwtSecurityToken _token;
 
 		private readonly ILogger<MainPageController> _logger;
@@ -24,7 +25,7 @@ namespace FoodSemWork.Controllers
 		//public User CurrentUser { get => GetUser(); }
 
 		public MainPageController(ILogger<MainPageController> logger, Service service, ApplicationContext context)
-        {
+		{
 			_logger = logger;
 			this.service = service;
 			db = context;
@@ -39,7 +40,7 @@ namespace FoodSemWork.Controllers
 		[HttpPost]
 		public IActionResult SendMail(string name, string email, string phonenumber, string adress, string title, string messagetitle)
 		{
-			service.SendEmail(name,email,phonenumber,adress,title,messagetitle);
+			service.SendEmail(name, email, phonenumber, adress, title, messagetitle);
 
 			return RedirectToAction("Main");
 		}
@@ -52,9 +53,9 @@ namespace FoodSemWork.Controllers
 
 
 		public IActionResult Index()
-        {
-            return View(/*CurrentUser*/);
-        }
+		{
+			return View(/*CurrentUser*/);
+		}
 
 
 		public IActionResult Main(Main model)
@@ -111,6 +112,31 @@ namespace FoodSemWork.Controllers
 		{
 			return PartialView("_GetMessage");
 		}
+
+
+
+		[HttpGet]
+		public IActionResult SearchEngine()
+		{
+			var genres = db.TypesOfFoods.ToList();
+			return View(genres);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> SearchEngine(string searchString)
+		{
+			var genre = from m in db.TypesOfFoods
+						select m;
+
+			if (!string.IsNullOrEmpty(searchString))
+			{
+				genre = genre.Where(s => s.TypeOfFood!.Contains(searchString));
+			}
+
+			return View(await genre.ToListAsync());
+		}
+
+
 
 		//public User GetUser()
 		//{

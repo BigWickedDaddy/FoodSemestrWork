@@ -156,3 +156,4 @@ C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razo
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\_GetMessage.cshtml.g.cs
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\Post.cshtml.g.cs
 C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\Blog.cshtml.g.cs
+C:\Users\olegs\source\repos\FoodSemWork\FoodSemWork\obj\Debug\netcoreapp3.1\Razor\Views\MainPage\SearchEngine.cshtml.g.cs

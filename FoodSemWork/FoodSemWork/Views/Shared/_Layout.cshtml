@@ -1,4 +1,6 @@
 ﻿
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link asp-controller="mainpage" asp-action="blog">Блог </a>
+                        <a class="nav-link" asp-controller="mainpage" asp-action="blog">Блог </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="mainpage" asp-action="contactus">Контакты</a>
@@ -36,10 +38,13 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
+                    
                     <li class="nav-item">
-                        <a asp-controller="account" asp-action="profile">Логин
-                        </a>
+                        <a asp-controller="account" asp-action="profile"><img  src="~/pic/pic-image.png" width="30px"/></a>
                     </li>
+                    
+                    
+
                     <li class="nav-item">
                         <a asp-controller="registrationlogin" asp-action="registration">Зарегистрироваться</a>
                     </li>
