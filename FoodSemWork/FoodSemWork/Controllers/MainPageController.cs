@@ -42,7 +42,8 @@ namespace FoodSemWork.Controllers
 		{
 			service.SendEmail(name, email, phonenumber, adress, title, messagetitle);
 
-			return RedirectToAction("Main");
+			//return RedirectToAction("Main");
+			return Redirect("/mainpage/main");
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace FoodSemWork.Controllers
 {
+
 	public class AccountController : Controller
 	{
 		private ApplicationContext db;
@@ -33,7 +34,9 @@ namespace FoodSemWork.Controllers
 		{
 			if (CurrentUser == null)
 			{
-				return RedirectToAction("Login", "RegistrationLogin");
+				//return RedirectToAction("Login", "RegistrationLogin");
+				return Redirect("/RegistrationLogin/Login");
+
 			}
 
 			return View(CurrentUser);
@@ -49,7 +52,9 @@ namespace FoodSemWork.Controllers
 
 			if (CurrentUser == null)
 			{
-				return RedirectToAction("Login", "RegistrationLogin");
+				//return RedirectToAction("Login", "RegistrationLogin");
+				return Redirect("/RegistrationLogin/Login");
+
 			}
 
 			if (model.Avatar != null)

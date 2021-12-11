@@ -37,7 +37,8 @@ namespace FoodSemWork.Controllers
         public async Task<IActionResult> Registration(UserViewModel model)
         {
             if (Request.Cookies["token"] != null)
-                return RedirectToAction("Login", "RegistrationLogin");
+                //return RedirectToAction("Login", "RegistrationLogin");
+                return Redirect("/RegistrationLogin/Login");
 
             if (ModelState.IsValid && model.ConfirmPassword == model.Password)
             {
@@ -55,9 +56,12 @@ namespace FoodSemWork.Controllers
                         };
                         db.Users.Add(currentUser);
                         await db.SaveChangesAsync();
-                        return RedirectToAction("Profile", "Account");
+                        //return RedirectToAction("Profile", "Account");
+                        return Redirect("/account/profile");
+
                     }
-                    return RedirectToAction("Registration", "Registrationlogin");
+                    //return RedirectToAction("Registration", "Registrationlogin");
+                    return Redirect("/registrationlogin/registration");
                 }
                 else
                     ModelState.AddModelError("", "User already exists");
@@ -69,7 +73,8 @@ namespace FoodSemWork.Controllers
         public IActionResult Login()
         {
             if (Request.Cookies["token"] != null)
-                return RedirectToAction("RegistrationLogin", "Login");
+                //return RedirectToAction("RegistrationLogin", "Login");
+                return Redirect("/registrationlogin/login");
 
             return View();
         }
@@ -81,16 +86,20 @@ namespace FoodSemWork.Controllers
             User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == Encryption.EncryptString(model.Password));
             if (user == null)
             {
-                return RedirectToAction("Registration", "RegistrationLogin");
+                //return RedirectToAction("Registration", "RegistrationLogin");
+                return Redirect("/registrationlogin/registration");
             }
             var token = _jWTAuthManager.Authenticate(user);
 
             if (token == null)
-                return RedirectToAction("Login", "RegistrationLogin");
+                //return RedirectToAction("Login", "RegistrationLogin");
+                return Redirect("/registrationlogin/login");
             else
             {
                 Response.Cookies.Append("token", token);
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Profile", "Account");
+                return Redirect("/account/profile");
+
             }
 
 
@@ -106,9 +115,13 @@ namespace FoodSemWork.Controllers
         {
             var token = Request.Cookies["token"];
             if (token == null)
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
+                return Redirect("/registrationlogin/login");
+
             Response.Cookies.Delete("token");
-            return RedirectToAction("Index", "Home");
+            //return RedirectToAction("Index", "Home");
+            return Redirect("/registrationlogin/login");
+
         }
 
 
