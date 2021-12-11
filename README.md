@@ -17,3 +17,5 @@
 Backend будет лежать в этом рп в папке Dev1 //Web-приложение на ASP.NET Core, сервер Kestrel, шаблонизатор Razor
 
 Frontend в папке Dev2 //html, css (с библиотекой bootstrap или альтернативной), js с библиотекой jquery
+
+![image](https://user-images.githubusercontent.com/81323621/145676832-3822b645-3d48-4dac-a069-2a58e52021c1.png)
