@@ -4,5 +4,8 @@
  
 В качестве бд будет использована Postgres.
 
+Frontend в папке Dev2 //html, css (с библиотекой bootstrap или альтернативной), js с библиотекой jquery
+
+![image](https://user-images.githubusercontent.com/81323621/145676832-3822b645-3d48-4dac-a069-2a58e52021c1.png)
 Ссылка на презентацию данного проекта: 
 https://docs.google.com/presentation/d/1FQC0ZlBggKFVteKDERWneJ7B_t92dLGg-RnwTvDXv9Y/edit?usp=sharing

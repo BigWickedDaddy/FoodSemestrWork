@@ -1,0 +1,65 @@
+﻿
+@model List<FoodSemWork.Models.Posts>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Еда</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="~/css/style.css" />
+
+
+</head>
+
+<h2 class="text-center" style="margin-top: 20px;">
+    Галерея
+</h2>
+
+<div class="gallery">
+
+    <div class="scrollcontainer">
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+    </div>
+
+    <div class="scrollcontainer" style="justify-content: flex-end;">
+        <img src="/pic/pic-1.jpeg" />
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+    </div>
+
+    <div class="scrollcontainer">
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+        <img src="/pic/pic-1.jpeg" />
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+            <img src="@posts.Picture" />
+        }
+    </div>
+
+</div>
+

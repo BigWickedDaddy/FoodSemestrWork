@@ -1,0 +1,91 @@
+﻿
+@model List<FoodSemWork.Models.Posts>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Еда</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="~/css/style.css" >
+
+
+</head>
+
+<body>
+    <!-- ГЛАВНАЯ ЧАСТЬ -->
+    <div class="container">
+        <nav class="navbar navbar-light bg-white" style="width: 100%;">
+            <a class="navbar-brand">Все посты</a>
+            @await Html.PartialAsync("_GetMessage")
+        </nav>
+
+
+
+        @foreach (FoodSemWork.Models.Posts posts in Model)
+        {
+        <div class="border post" style="margin-top:15px">
+            <img src="@posts.Picture" width="700">
+            <div class="post-info">
+                <div class="post-info-header">
+                    @posts.AuthorName
+                </div>
+
+                <div>
+                    <h5>@posts.Title </h5>
+                    <p>@posts.Description </p>
+                </div>
+
+                <div class="d-flex justify-content-start mt-auto">
+                    <div class="ml-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+
+        @*<div class="border post">
+            <img src="https://www.obltv.ru/upload/resize_cache/iblock/b85/690_6900_1/eda_1.jpg" width="700">
+            <div class="post-info">
+                <div class="post-info-header">
+                    бла бла
+                </div>
+
+                <div>
+                    <h5>CЭНДВИЧ С КОЛБАСОЙ И ХЛЕБОМ И СЭНДВИЧЕМ</h5>
+                    <p>CЭНДВИЧ С КОЛБАСОЙ И ХЛЕБОМ И СЭНДВИЧЕМ ОЧЕНЬ ВКУСНО СОВЕТУю</p>
+                </div>
+
+                <div class="d-flex justify-content-start mt-auto">
+                    <div class="ml-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border post">
+            <img src="https://www.obltv.ru/upload/resize_cache/iblock/b85/690_6900_1/eda_1.jpg" width="700">
+            <div class="post-info">
+                <div class="post-info-header">
+                    бла бла
+                </div>
+
+                <div>
+                    <h5>CЭНДВИЧ С КОЛБАСОЙ И ХЛЕБОМ И СЭНДВИЧЕМ</h5>
+                    <p>CЭНДВИЧ С КОЛБАСОЙ И ХЛЕБОМ И СЭНДВИЧЕМ ОЧЕНЬ ВКУСНО СОВЕТУю</p>
+                </div>
+
+                <div class="d-flex justify-content-start mt-auto">
+                    <div class="ml-auto">
+
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+
+    <div style="height:100px margin-top:25px "><br><br /></div>
+    <div style="height:100px margin-top:10px "><br><br /></div>
+</body>
